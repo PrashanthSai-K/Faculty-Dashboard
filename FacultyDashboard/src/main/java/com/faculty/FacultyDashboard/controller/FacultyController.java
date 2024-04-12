@@ -3,10 +3,8 @@ package com.faculty.FacultyDashboard.controller;
 import com.faculty.FacultyDashboard.entity.Faculty;
 import com.faculty.FacultyDashboard.repository.FacultyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -15,6 +13,7 @@ public class FacultyController {
 
     @Autowired
     FacultyRepository repo;
+    
 
     @GetMapping("/api")
     public  String api(){
@@ -34,6 +33,12 @@ public class FacultyController {
         return repo.save(faculty);
     }
 
+
+    @GetMapping("/login")
+    public Object login(@RequestHeader Object obj){
+
+        return null;
+    }
 
 //    @GetMapping("/error")
 //    public String error(){
