@@ -8,9 +8,16 @@ public class Faculty {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "mobno")
     private  String mobno;
+
+    @Column(name = "name")
     private String name;
 
     public Faculty(){
