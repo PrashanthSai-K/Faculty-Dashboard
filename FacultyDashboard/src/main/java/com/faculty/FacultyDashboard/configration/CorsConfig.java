@@ -26,12 +26,13 @@ public class CorsConfig implements WebMvcConfigurer {
         resigtry.addMapping("/**")
                 .allowedOrigins("http://localhost:3000")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
-                .allowedHeaders("*");
+                .allowedHeaders("Authorization", "Referer", "Content-Type", "*")
+                .allowCredentials(true);
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry){
             registry.addInterceptor(new AuthorizationInterceptor()).addPathPatterns("/api/faculty/**");
-            registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/login/**");
+//            registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/login/");
     }
 }

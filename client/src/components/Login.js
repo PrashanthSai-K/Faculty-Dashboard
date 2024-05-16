@@ -1,10 +1,19 @@
-import react from 'react';
+import react, { useEffect } from 'react';
 import { GoogleLogin, useGoogleOneTapLogin  } from '@react-oauth/google';
 import axios  from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import { Navigate, useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        if(localStorage.getItem('token')){
+            navigate("/dashboard");
+        }
+    },[])
 
     useGoogleOneTapLogin({
         onSuccess: async(credentialResponse) => {
@@ -22,10 +31,15 @@ const Login = () => {
             localStorage.setItem("token", resp.data);
             console.log(resp.data);
             const data = await axios.get("http://localhost:8080/login/auth/", {headers:{ Authorization : resp.data}})
-            localStorage.setItem("Data", data);
+            // console.log(data);
+            localStorage.setItem("Data", JSON.stringify(data.data));
             toast.success("Logged in sucessfully!!!");
+            setTimeout(()=>{
+                navigate("/dashboard");
+            }, 3000);
+            
         }catch(error){
-            if(error.response.status == 401){
+            if(error){
                 console.log("UnAuthorized");
                 toast.error("Unauthorized")
             }
@@ -46,7 +60,7 @@ const Login = () => {
                     <div className='text-3xl font-semibold'>
                         BIT ProfPortal
                     </div>
-                    <div class="flex items-center justify-center ">
+                    <div className="flex items-center justify-center ">
                         {/* <button class="px-4 py-2 border flex items-center justify-center gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
                             <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo" />
                             <span>Login with Google</span>

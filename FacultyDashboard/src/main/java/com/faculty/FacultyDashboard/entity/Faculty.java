@@ -20,6 +20,9 @@ public class Faculty {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "type")
+    private String type;
+
     public Faculty(){
         //no arg constructor
     }
@@ -60,5 +63,13 @@ public class Faculty {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

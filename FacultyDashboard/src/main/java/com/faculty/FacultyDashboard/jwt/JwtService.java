@@ -31,6 +31,7 @@ public class JwtService {
     public String print(GoogleData response){
         try{
             String email = response.getEmail();
+            System.out.println(email);
             Faculty faculty = facultyService.verifyUser(email);
             if(faculty == null){
                 return "notfound";
@@ -39,7 +40,7 @@ public class JwtService {
             map.put("email", faculty.getEmail());
             map.put("name", faculty.getName());
             map.put("picture", response.getPicture());
-            map.put("role", "faculty");
+            map.put("role", faculty.getType());
             return Jwts.builder().claims(map).signWith(key).compact();
         }catch(Exception e) {
             return null;

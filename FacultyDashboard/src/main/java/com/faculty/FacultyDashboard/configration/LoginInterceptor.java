@@ -16,8 +16,8 @@ public class LoginInterceptor implements HandlerInterceptor {
             String token = (String) request.getHeader("Authorization");
             System.out.println(token);
             if(token == null || token.isEmpty()){
-                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                response.getWriter().write("Unauthorized to access");
+//                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+//                response.getWriter().write("Unauthorized to access");
                 return false;
             }
             return true;
