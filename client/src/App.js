@@ -47,7 +47,7 @@ function App() {
       <Navbar navBar={navBar} data={data} />
       <TopBar navBar={navBar} data={data} page={"Dashboard"} />
 
-      <div className={` ${navBar ? "pl-64 pt-20" : ""} bg-gray-100 h-screen`}>
+      <div className={` ${navBar ? "pl-64 pt-20 pr-4 pb-4" : ""} bg-gray-100 h-screen`}>
 
         <Routes>
           <Route path='/dashboard' element={<Dashboard />} />
