@@ -6,7 +6,7 @@ function AddUser() {
 
   return (
    <>
-       {/* <div style={{height:"auto"}} className="flex w-full justify-center items-center  rounded-xl" >
+       <div style={{height:"auto"}} className="flex w-full justify-center items-center  rounded-xl" >
       <div className="flex h-full justify-center items-center flex-col w-full bg-white p-10 rounded-xl" >
         <div style={{ height: "80%",width:"80%" }}
           className="animate1 overflow-x-auto overflow-y-auto flex flex-col items-center justify-center border-gray-700 rounded-lg"
@@ -209,7 +209,7 @@ function AddUser() {
             </center>
         </div>
       </div>
-    </div> */}
+    </div>
 
 
    </>

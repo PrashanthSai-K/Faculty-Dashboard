@@ -15,11 +15,13 @@ function Dashboard() {
     setData(JSON.parse(localStorage.getItem("Data")));
   }, []);
 
-  
+
 
   return (
     <>
       <ToastContainer />
+
+
       <div className="w-full h-full flex">
         <div className="w-3/4 h-full flex flex-col gap-4 justify-center items-center">
           <div style={{ width: "96%" }} className="bg-white shadow-2xl h-1/5 flex justify-center items-center gap-7">
@@ -450,7 +452,7 @@ function Dashboard() {
               <img className="w-6 h-6" src="/images/search.png" />
             </div>
             <div style={{ width: "90%", height: "90%" }} className="rounded-md bg-gray-200 pt-48 overflow-y-scroll flex flex-col justify-center items-center gap-3">
-              <div style={{ width: "96%" }} className=" rounded-md bg-white shadow-md flex justify-center items-center" >
+              <div style={{ width: "96%" }} className="h-16 rounded-md bg-white shadow-md flex justify-center items-center" >
                 <div style={{ height: "90%" }} className=" w-2/6 flex justify-center items-center">
                   <img className="w-14 h-14 rounded-full" src="/images/profile.png" />
                 </div>

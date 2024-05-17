@@ -27,13 +27,13 @@ function Navbar({ navBar, data }) {
                 <div className='text-white'>
                     <ul className='text-lg font-medium'>
                         <li className='pt-5 pl-5 pb-4'>
-                            <Link to="/" className=''>Dashboard</Link>
+                            <Link to="/dashboard" className=''>Dashboard</Link>
                         </li>
-                        { data && data.role == "admin" &&
+                        {/* { data && data.role == "admin" && */}
                             <li className=' pl-5 pb-4'>
                                 <Link to="/adduser">Add User</Link>
                             </li>
-                        }
+                        {/* } */}
                         <li className='pl-5 pb-4'>
                             <button className='' onClick={handleLogout}>Logout</button>
                         </li>
