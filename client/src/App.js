@@ -7,6 +7,7 @@ import Navbar from './Navbar.js';
 import { useEffect, useState } from 'react';
 import TopBar from './components/TopBar.js';
 import AddUser from './components/AddUser.js';
+import UserProfile from './components/UserProfile.js';
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
   const path = useLocation();
   const curr_path = path.pathname.split("/")[1];
   const [navBar, setNavbar] = useState(false);
-  const routes = ["dashboard", "adduser"]
+  const routes = ["dashboard", "adduser","userprofile"]
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -53,6 +54,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/' element={<Login />} />
           <Route path='/adduser' element={<AddUser />} />
+          <Route path='/userprofile' element={<UserProfile />} />
         </Routes>
 
       </div>
